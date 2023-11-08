@@ -1,5 +1,5 @@
 # === Build Stage ===
-FROM node:14 AS build
+FROM node:18 AS build
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # === Run Stage ===
-FROM node:14-slim
+FROM node:18-slim
 WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/package*.json ./
