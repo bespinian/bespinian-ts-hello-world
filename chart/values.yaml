@@ -1,0 +1,5 @@
+namespace: bespinian-hello-world
+image:
+  repository: ghcr.io/bespinian/bespinian-ts-hello-world
+  pullPolicy: Always
+  tag: "main"
