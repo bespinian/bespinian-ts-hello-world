@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "clean": "rimraf dist",
     "prestart": "npm run clean && npm run build",
     "start-faas": "func start",
     "start": "node dist/app.js",
@@ -20,7 +19,6 @@
     "@types/express": "^4.17.21",
     "@types/node": "18.x",
     "azure-functions-core-tools": "^4.x",
-    "rimraf": "^5.0.0",
     "typescript": "^5.2.2"
   }
 }
