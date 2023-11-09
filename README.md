@@ -19,8 +19,9 @@ npm start
 
 ```bash
 # build image
-docker build -t docker.io/bespinian/bespinian-ts-hello-world .
+docker build -t ghcr.io/bespinian/bespinian-ts-hello-world:main .
+
 
 # run image
-docker run -p 3000:3000 docker.io/bespinian/bespinian-ts-hello-world
+docker run -p 3000:3000 ghcr.io/bespinian/bespinian-ts-hello-world:main
 ```
