@@ -2,7 +2,7 @@
 
 This is a demo application for bespinian trainings etc.
 
-## Local development
+## Express app
 
 ```bash
 # install dependencies
@@ -13,6 +13,19 @@ npm run build
 
 # start locally
 npm start
+```
+
+## Azure FaaS
+
+```bash
+# install dependencies
+npm i
+
+# build app
+npm run build
+
+# start locally
+func start
 ```
 
 ## Docker setup
