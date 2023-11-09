@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "prestart": "npm run clean && npm run build",
     "start-faas": "func start",
     "start": "node dist/app.js",
     "test": "echo \"No tests yet...\""
