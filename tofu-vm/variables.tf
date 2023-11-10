@@ -1,0 +1,17 @@
+variable "resource_group_location" {
+  type        = string
+  default     = "westeurope"
+  description = "Location of the resource group."
+}
+
+variable "resource_group_name" {
+  type        = string
+  default     = "tofu-vm-bespinian-labs"
+  description = "Name of the resource group."
+}
+
+variable "username" {
+  type        = string
+  description = "The username for the local account that will be created on the new VM."
+  default     = "azureadmin"
+}
