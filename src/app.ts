@@ -1,5 +1,7 @@
 import express from 'express';
 import path from 'path';
+import { SeverityNumber } from '@opentelemetry/api-logs';
+import { logger } from './logger';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -7,6 +9,12 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
+  logger.emit({
+    severityNumber: SeverityNumber.INFO,
+    severityText: 'info',
+    body: 'GET request on route / received',
+    attributes: { 'log.type': 'custom' },
+  });
   res.send(`
     <!DOCTYPE html>
     <html>
@@ -43,4 +51,10 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
+  logger.emit({
+    severityNumber: SeverityNumber.INFO,
+    severityText: 'info',
+    body: `Server is listening on port ${port}`,
+    attributes: { 'log.type': 'custom' },
+  });
 });
