@@ -9,8 +9,7 @@ RUN npm run build
 # === Run Stage ===
 FROM node:18-slim
 WORKDIR /home/nodejs/app
-COPY --from=build /usr/src/app/dist/app.js ./dist/app.js
-COPY --from=build /usr/src/app/dist/instrumentation.js ./dist/instrumentation.js
+COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/package*.json ./
 COPY --from=build /usr/src/app/public ./public
 RUN npm install --only=production
