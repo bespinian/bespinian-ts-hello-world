@@ -1,6 +1,14 @@
 import { getImage } from "./getImage";
 import { getFavicon } from "./getFavicon";
+import { readFileSync } from 'fs';
 
+const readFileOrDefault = (filePath: string): string => {
+  try {
+    return readFileSync(filePath, 'utf8').trim();
+  } catch {
+    return "";
+  }
+};
 
 export const getHtml = () => {
 	return `
@@ -41,6 +49,7 @@ export const getHtml = () => {
       <img class="bgImage" src="data:image/jpeg;base64,${getImage()}" alt="bespinian background">
       <div class="content">
         <h1>Hello, World!</h1>
+        <p>${readFileOrDefault('/mnt/secret-store')}</p>
       </div>
     </body>
   </html>`;
